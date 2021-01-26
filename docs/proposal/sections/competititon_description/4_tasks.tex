@@ -1,0 +1,26 @@
+\subsection{Tasks and application scenarios}
+
+
+\subsubsection{Task}
+    
+The primary task of the competition is solving the \texttt{ObtainDiamond} environment. 
+As previously described (see Section~\ref{sec:data}), agents begin at a random position on a randomly generated Minecraft survival map with no items in their inventory. 
+The task consists of controlling an embodied agent to obtain a single diamond.
+This task can only be accomplished by navigating the complex item hierarchy of Minecraft. 
+The learning algorithm will have direct access to a $64$x$64$ pixel point-of-view observation from the perspective of the embodied Minecraft agent, as well as a set of discrete observations of the agent's inventory for every item required for obtaining a diamond (see Figure~\ref{fig:task_hist}). 
+The action space of the agent is the Cartesian product of continuous view adjustment (turning and pitching), binary movement commands (left/right, forward/backward), and discrete actions for placing blocks, crafting items, smelting items, and mining/hitting enemies.  
+The agent is rewarded for completing the full task.
+Due to the difficulty of the task, the agent is also rewarded for reaching a set of milestones of increasing difficulty that form a set of prerequisites for the full task (see Section~\ref{sec:metrics}).
+
+The competition task embodies two crucial challenges in reinforcement learning: sparse rewards and long time horizons. 
+The sparsity of the posed task (in both its time structure and long time horizon) necessitates the use of efficient exploration techniques, human priors for policy bootstrapping, or reward shaping via inverse reinforcement learning techniques. 
+Although this task is challenging, preliminary results indicate the potential of existing and new methods utilizing human demonstrations to make progress in solving it (see Section~\ref{sec:baselines}).
+    
+Progress towards solving the \texttt{ObtainDiamond} environment under strict sample complexity constraints lends itself to the development of sample-efficient--and therefore more computationally accessible--sequential decision making algorithms. 
+In particular, because we maintain multiple versions of the dataset and environment for development, validation, and evaluation, it is difficult to engineer domain-specific solutions to the competition challenge. 
+The best performing techniques must explicitly implement strategies that efficiently leverage human priors across general domains. 
+In this sense, the application scenarios of the competition are those which stand to benefit from the development of such algorithms; to that end, we believe that this competition is a step towards democratizing access to deep reinforcement learning based techniques and enabling their application to real-world problems.
+    
+\paragraph{Previous Year's Task} Stability in metrics across years is crucial for tracking and assessing long-term impact and progress. In the MineRL 2019 competition, no team obtained a diamond; however, many teams made great progress toward solving this task. In fact, the top team was able to obtain the penultimate item to the goal. For this reason, we elected to keep the same task from last year.
+
+\newpage

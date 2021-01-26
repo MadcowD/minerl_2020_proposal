@@ -1,0 +1,29 @@
+Russ Feedback
+
+
+
+Should figure out how to say
+	 More research is needed to reduce the sample complexity.
+	 Dataset enables transfer learning research 
+		? If I know dense rewards on previous tasks and give a new task with sparse rewards)
+		? Family of tasks 
+\One shot learning by demonstrations.
+
+
+Emphasize the fact that this is an open world envitronment. 
+	 One thing that is missing in RL is a huge scale multitasking environment (Imagenet vs CIFAR-10) 
+	 Survival data is segmented by obtaining items and therefore we can produce as many tasks as there are items to 
+
+
+
+Followup with Davendra
+
+[ x ] 
+
+
+
+
+Competition Notes:
+	1. Here's the data. How much faster can you solve this task (how many frames does it take to solve this task)
+	2. Combination of sample complexity 
+	3. Releasable models for the competition track.

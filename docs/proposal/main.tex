@@ -1,0 +1,130 @@
+\pdfoutput=1
+
+\documentclass[11pt, oneside]{article}    
+
+\newcommand{\minenet}{MineRL}
+
+
+\usepackage{geometry}
+\geometry{letterpaper}                          
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[numbers]{natbib}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{amssymb}
+\usepackage{subcaption}
+\newcommand{\footremember}[2]{%
+\footnote{#2}
+\newcounter{#1}
+\setcounter{#1}{\value{footnote}}%
+}
+\newcommand{\footrecall}[1]{%
+\footnotemark[\value{#1}]%
+}
+
+\newcommand\sm[1]{{\color{orange}{#1}}}
+\newcommand\nt[1]{{\color{blue}{#1}}}
+\newcommand\bh[1]{{\color{red}{#1}}}
+\newcommand\wg[1]{{\color{purple}{#1}}}
+\newcommand\mo[1]{{\color{magenta}{#1}}}
+\newcommand\ov[1]{{\color{brown}{Oriol: #1}}}
+
+\usepackage{todonotes}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{MineRL Competition}
+\rhead{Guss et al.}
+\rfoot{\thepage}
+
+\title{NeurIPS 2020 Competition: The MineRL Competition on Sample Efficient Reinforcement Learning using Human Priors }
+
+\author{William H. Guss\footremember{lead}{Lead organizer: \texttt{wguss@cs.cmu.edu}}\footremember{cmu}{Affiliation: Carnegie Mellon University}\footremember{openai}{Affiliation: OpenAI Inc.}
+\and Mario Ynocente Castro\footremember{eq}{
+    \textbf{Equal contribution: Organizer names are ordered alphabetically}, with the exception of the lead organizer. Competitions are extremely complicated endeavors involving a huge amount of organizational overhead from the development of complicated software packages to event logistics and evaluation. It is impossible to estimate the total contributions of all involved at the onset.
+}\footremember{pfn}{Affiliation: Preferred Networks, Inc.}
+\and Sam Devlin\footrecall{eq} \footremember{ms}{Affiliation: Microsoft Research}
+\and Brandon Houghton\footrecall{eq} \footrecall{openai}
+\and Noboru Sean Kuno\footrecall{eq} \footrecall{ms}
+\and Crissman Loomis\footrecall{eq} \footrecall{pfn}
+\and Stephanie Milani\footrecall{eq} \footrecall{cmu}
+\and Sharada Mohanty\footrecall{eq} \footremember{ai}{Affiliation: AIcrowd SA}
+\and Keisuke Nakata\footrecall{eq} \footrecall{pfn}
+\and Ruslan Salakhutdinov\footrecall{eq} \footrecall{cmu}
+\and John Schulman\footrecall{eq} \footrecall{openai}
+\and Shinya Shiroshita\footrecall{eq} \footrecall{pfn}
+\and Nicholay Topin\footrecall{eq} \footrecall{cmu}
+\and Avinash Ummadisingu\footrecall{eq} \footrecall{pfn}
+\and Oriol Vinyals\footrecall{eq} \footremember{dm}{Affiliation: DeepMind}
+}
+
+
+\date{}
+\renewcommand{\abstractname}{Competition Overview}
+
+\begin{document}
+\maketitle
+\vspace{-20pt}
+
+
+\section*{Competition Overview}
+    % motivator: 
+    Although deep reinforcement learning has led to breakthroughs in many difficult domains, these successes have required an ever-increasing number of samples. As state-of-the-art reinforcement learning (RL) systems require an ever-increasing number of samples, their development is restricted to a continually shrinking segment of the AI community. Likewise, many of these systems cannot be applied to real-world problems, where environment samples are expensive. Resolution of these limitations requires new, sample-efficient methods. To facilitate research in this direction, we propose the \emph{MineRL 2020 Competition on Sample Efficient Reinforcement Learning using Human Priors}\footnote{\url{https://www.aicrowd.com/challenges/neurips-2020-minerl-competition}}.
+    
+    
+    The primary goal of the competition is to 
+        foster the development of algorithms which can efficiently leverage human demonstrations to drastically reduce the number of samples needed to solve complex, hierarchical, and sparse environments. 
+        To that end, participants will compete under a limited environment sample-complexity budget to develop systems which solve the MineRL \texttt{ObtainDiamond} task, a sequential decision making environment requiring long-term planning, hierarchical control, and efficient exploration methods.  
+    Participants will be provided the \emph{MineRL-v0} dataset~\cite{gussminerlijcai2019}, a large-scale collection of over 60 million state-action pairs of human demonstrations that can be resimulated into embodied agent trajectories with arbitrary modifications to game state and visuals.
+
+    The competition is structured into two rounds in which competitors 
+        are provided several paired versions of the dataset and environment with different game textures and shaders.
+    At the end of each round, competitors will submit containerized 
+        versions of their learning algorithms to the AIcrowd platform where they will then be trained from scratch on a hold-out  dataset-environment pair for a total of 4-days on a pre-specified hardware platform. 
+        Each submission will then be automatically ranked according to the final performance of the trained agent.
+
+    This challenge is a follow-up to our NeurIPS 2019 MineRL competition~\cite{gussminerlneurips2019}, which yielded over 1000 registered participants and over 662 full submissions. The competition benchmark, RL environment, and dataset framework were downloaded over 52,000 times in 26+ countries~\cite{milani2020minerl}. 
+        In this iteration, we will implement new features to expand the scale and reach of the competition. In response to the feedback of the previous participants, we are introducing a second minor track focusing on solutions \textit{without access to environment interactions} of any kind except during test-time. Both tracks will follow the same two-round schedule.
+        Last year's top submissions developed novel methods advancing inverse reinforcement learning, hierarchical imitation learning, and more. In the forthcoming competition, we anticipate an even larger research impact. With the addition of action-space randomization and desemantization of observations and actions, we believe that the most successful competition submissions will be highly task and domain agnostic.
+
+    
+    
+ 
+
+\subsection*{Keywords}
+Reinforcement Learning, Imitation Learning, Sample Efficiency, Games, MineRL, Minecraft.
+\subsection*{Competition Type} Regular.
+
+\newpage 
+
+\section{Competition Description}
+
+
+\input{sections/competititon_description/1_background_impact}
+\input{sections/competititon_description/2_novelty}
+\input{sections/competititon_description/3_data}
+\input{sections/competititon_description/4_tasks}
+\input{sections/competititon_description/5_metrics}
+\input{sections/competititon_description/6_baselines_code_materials}
+
+\input{sections/competititon_description/7_tutorial_docs}
+
+\section{Organizational Aspects}
+
+\input{sections/organization}
+
+
+\section{Resources}
+
+\input{sections/resources}
+
+%
+\bibliographystyle{plainnat}
+\bibliography{main}
+
+\end{document}

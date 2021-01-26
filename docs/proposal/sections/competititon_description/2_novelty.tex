@@ -1,0 +1,45 @@
+\subsection{Novelty} \label{sec:novelty}
+
+This year's MineRL Competition is a follow-up to the first MineRL competition held at NeurIPS 2019.
+We continue to encourage the development of general learning algorithms which must perform well within a \emph{strict} computation and environment-sample budget. 
+Based on community feedback and our retrospection, we are making the following improvements to this year's competition:
+
+\begin{itemize}
+    \item To further encourage competitors to develop generalizable methods, we are updating the rules on manually specified policies and pre-processing of the action space. In particular, we are improving the clarity of the rules, and we are no longer allowing submissions to manually specify action choices. In the previous MineRL Competition, actions could be specified by the competitors as long as the setting did not depend on an aspect of the state.
+    \item To ensure that competitors do not exploit the semantic meanings attached to the action or observation labels, we embed both the action and non-POV observations individually into latent spaces using auto-encoders. This makes it difficult to manually specify meaningful actions, or hard-code behaviors based on observations by providing obfuscated vectors for the action and observation spaces. The networks trained to embed and recover actions and observations ensure that the original actions and observations are recoverable from the embedded space, but also that entire embedded domain maps onto the original space. Additionally, this embedding is changed in subsequent rounds to ensure generalizability. Previously, labels were modified during evaluation, but they still carried semantic meaning and were not fully obfuscated.
+    \item To further encourage the use of methods that learn from demonstrations, we are adding a second track to the competition. This track will follow the same restrictions as the original track, but competitors will not be permitted to use the environment during training. By adding this track, competitors interested in learning from demonstrations can compete without being disadvantaged compared to those who also use reinforcement learning. Additionally, this track will help quantify the performance attainable using only demonstrations.
+\end{itemize}
+
+Our competition focuses on the application of reinforcement learning and imitation learning to a domain in Minecraft. 
+As a result, it is related to competitions which focus on these three aspects.
+We briefly identify related competitions and describe the key differences between our proposed competition and the other competitions.
+
+\paragraph{Reinforcement Learning.} Prior to our competition series, reinforcement learning competitions have focused on the development of policies or meta-policies that perform well on complex domains or generalize across a distribution of tasks~\cite{kidzinski2018learning, nichol2018gotta, perez2019multi}. 
+However, the winning submissions of these competitions are often the result of massive amounts of computational resources or highly specific, hand-engineered features. 
+In contrast, our competition directly considers the efficiency of the training procedures of learning algorithms.
+
+We evaluate submissions solely on their ability to perform well within a \emph{strict} computation and environment-sample budget. 
+Moreover, we are uniquely positioned to propose such a competition due to the nature of our human demonstration dataset and environment: our dataset is constructed by directly recording the game-state as human experts play, so we are able to later make multiple renders of both the environment and data with varied lighting, geometry, textures, and game-state dynamics, thus yielding development, validation, and hold-out evaluation dataset/environment pairs. 
+As a result, competitors are naturally prohibited from hand-engineering or warm-starting their learning algorithms and winning solely due to resource advantages. 
+
+\paragraph{Imitation Learning.} To our knowledge, no competitions have explicitly focused on the use of imitation learning alongside reinforcement learning. 
+This is in large part due to a lack of large-scale, publicly available datasets of human or expert demonstrations. 
+Our competition is the first to explicitly involve and encourage the use of imitation learning to solve the given task, and in that capacity, we release the largest-ever dataset of human demonstrations on an embodied domain.
+The large number of trajectories and rich demonstration-performance annotations enable the application of many standard imitation learning techniques and encourage further development of new ones that use hierarchical labels, varying agent performance levels, and auxiliary state information.
+
+
+\paragraph{Minecraft.} 
+A few competitions have previously used Minecraft due to its expressive power as a domain. 
+The first one was The Malm\"{o} Collaborative AI Challenge\footnote{\url{https://www.microsoft.com/en-us/research/academic-program/collaborative-ai-challenge}}, in which agents worked in pairs to solve a collaborative task in a decentralized manner. 
+Later, C. Salge et al.~\cite{salge2018generative} organized the Generative Design in Minecraft (GDMC): Settlement Generation Competition, in which participants were asked to implement methods that would procedurally build complete cities in any given, unknown landscape. 
+These two contests highlight the versatility of this framework as a benchmark for different AI tasks.
+
+In 2018, Perez-Liebana et al.~\cite{perez2019multi} organized the Multi-Agent Reinforcement Learning in Malm\"{O} (MARL\"{O}) competition. 
+This competition pitted groups of agents to compete against each other in three different games.
+Each of the games was parameterizable to prevent the agents from overfitting to specific visuals and layouts. 
+The objective of the competition was to build an agent that would learn, in a cooperative or competitive multi-agent task, to play the games in the presence of other agents. 
+The MARL\"{O} competition successfully attracted a large number of entries from both existing research institutions and the general public, indicating a broad level of accessibility and excitement for the Minecraft domain within and outside of the existing research community.
+
+In comparison with previous contests, the MineRL series of competitions tackles one main task and provides a massive number of hierarchical subtasks and demonstrations (see Section~\ref{sec:data}). 
+The main task and its subtasks are not trivial; however, agent progress can be easily measured, which allows for a clear comparison between submitted methods. 
+Further, the target of the competition series is to promote research on \textit{efficient learning}, focusing directly on the sample- and computational-efficiency of the submitted algorithms~\cite{houghton2020guaranteeing}.

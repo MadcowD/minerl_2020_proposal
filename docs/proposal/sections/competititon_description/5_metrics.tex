@@ -1,0 +1,30 @@
+\subsection{Metrics}
+\label{sec:metrics}
+
+\begin{wraptable}{r}{0.5 \textwidth}
+    \vspace{-20pt}
+    \centering
+    \tiny
+    \begin{tabular}{ll|ll} 
+        {Milestone} & {Reward} & {Milestone} & {Reward} \\
+        \midrule
+        log & 1                & furnace & 32  \\
+        planks & 2             & stone\_pickaxe & 32  \\
+        stick & 4              & iron\_ore & 64  \\
+        crafting\_table & 4    & iron\_ingot & 128  \\
+        wooden\_pickaxe & 8    & iron\_pickaxe &  256 \\
+        stone & 16             & diamond & 1024 
+     \end{tabular}
+     \caption{
+        \small Rewards for sub-goals and main goal (diamond) for \texttt{Obtain Diamond}.}
+    \label{table:rew}
+    \vspace{-10pt}
+\end{wraptable} 
+
+Following training, participants will be evaluated on the average score of their model over 500 episodes.
+Scores are computed as the sum of the milestone rewards achieved by the agent in a given episode as outlined in Table~\ref{table:rew}. 
+A milestone is reached when an agent obtains the first instance of the specified item. 
+Ties are broken by the number of episodes required to achieve the last milestone. 
+An automatic evaluation script will be included with starter code. 
+For official evaluation and validation, a fixed map seed will be selected for each episode. These seeds will not be available to participants during the competition.
+

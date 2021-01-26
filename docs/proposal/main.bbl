@@ -1,0 +1,290 @@
+\begin{thebibliography}{40}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Amodei and Hernandez(2018)]{amodei_hednandez_2018}
+Dario Amodei and Danny Hernandez.
+\newblock https://blog.openai.com/ai-and-compute/, May 2018.
+\newblock URL \url{https://blog.openai.com/ai-and-compute/}.
+
+\bibitem[Bellemare et~al.(2013)Bellemare, Naddaf, Veness, and
+  Bowling]{bellemare2013arcade}
+Marc~G Bellemare, Yavar Naddaf, Joel Veness, and Michael Bowling.
+\newblock The arcade learning environment: An evaluation platform for general
+  agents.
+\newblock \emph{Journal of Artificial Intelligence Research}, 47:\penalty0
+  253--279, 2013.
+
+\bibitem[Berner et~al.(2019)Berner, Brockman, Chan, Cheung, D{{e}}biak,
+  Dennison, Farhi, Fischer, Hashme, Hesse, et~al.]{berner2019dota}
+Christopher Berner, Greg Brockman, Brooke Chan, Vicki Cheung, Przemyslaw
+  D{{e}}biak, Christy Dennison, David Farhi, Quirin Fischer, Shariq Hashme,
+  Chris Hesse, et~al.
+\newblock Dota 2 with large scale deep reinforcement learning.
+\newblock \emph{arXiv preprint arXiv:1912.06680}, 2019.
+
+\bibitem[Bojarski et~al.(2016)Bojarski, Del~Testa, Dworakowski, Firner, Flepp,
+  Goyal, Jackel, Monfort, Muller, Zhang, et~al.]{bojarski2016end}
+Mariusz Bojarski, Davide Del~Testa, Daniel Dworakowski, Bernhard Firner, Beat
+  Flepp, Prasoon Goyal, Lawrence~D Jackel, Mathew Monfort, Urs Muller, Jiakai
+  Zhang, et~al.
+\newblock End to end learning for self-driving cars.
+\newblock \emph{arXiv preprint arXiv:1604.07316}, 2016.
+
+\bibitem[Brockman et~al.(2016)Brockman, Cheung, Pettersson, Schneider,
+  Schulman, Tang, and Zaremba]{gym}
+Greg Brockman, Vicki Cheung, Ludwig Pettersson, Jonas Schneider, John Schulman,
+  Jie Tang, and Wojciech Zaremba.
+\newblock Open{AI} gym.
+\newblock \emph{arXiv preprint arXiv:1606.01540}, 2016.
+
+\bibitem[Cruz~Jr et~al.(2017)Cruz~Jr, Du, and Taylor]{cruz2017pre}
+Gabriel~V Cruz~Jr, Yunshu Du, and Matthew~E Taylor.
+\newblock Pre-training neural networks with human demonstrations for deep
+  reinforcement learning.
+\newblock \emph{arXiv preprint arXiv:1709.04083}, 2017.
+
+\bibitem[DeepMind(2018)]{deepmind}
+DeepMind.
+\newblock Alphastar: Mastering the real-time strategy game starcraft ii, 2018.
+\newblock URL
+  \url{https://deepmind.com/blog/alphastar-mastering-real-time-strategy-game-starcraft-ii/}.
+
+\bibitem[Finn et~al.(2016)Finn, Levine, and Abbeel]{finn2016guided}
+Chelsea Finn, Sergey Levine, and Pieter Abbeel.
+\newblock Guided cost learning: Deep inverse optimal control via policy
+  optimization.
+\newblock In \emph{The 33rd International Conference on Machine Learning},
+  pages 49--58, 2016.
+
+\bibitem[Finn et~al.(2017)Finn, Yu, Zhang, Abbeel, and Levine]{finn2017one}
+Chelsea Finn, Tianhe Yu, Tianhao Zhang, Pieter Abbeel, and Sergey Levine.
+\newblock One-shot visual imitation learning via meta-learning.
+\newblock \emph{arXiv preprint arXiv:1709.04905}, 2017.
+
+\bibitem[Fujita et~al.(2019)Fujita, Kataoka, Nagarajan, and
+  Ishikawa]{fujita2019chainerrl}
+Yasuhiro Fujita, Toshiki Kataoka, Prabhat Nagarajan, and Takahiro Ishikawa.
+\newblock {ChainerRL}: A deep reinforcement learning library.
+\newblock In \emph{The 23rd Conference on Neural Information Processing
+  Systems, Deep Reinforcement Learning Workshop}, 2019.
+
+\bibitem[Gao et~al.(2018)Gao, Lin, Yu, Levine, Darrell,
+  et~al.]{gao2018reinforcement}
+Yang Gao, Ji~Lin, Fisher Yu, Sergey Levine, Trevor Darrell, et~al.
+\newblock Reinforcement learning from imperfect demonstrations.
+\newblock \emph{arXiv preprint arXiv:1802.05313}, 2018.
+
+\bibitem[Guss et~al.(2019{\natexlab{a}})Guss, Codel, Hofmann, Houghton, Kuno,
+  Milani, Mohanty, Liebana, Salakhutdinov, Topin, et~al.]{guss2019minerl_comp}
+William~H Guss, Cayden Codel, Katja Hofmann, Brandon Houghton, Noboru Kuno,
+  Stephanie Milani, Sharada Mohanty, Diego~Perez Liebana, Ruslan Salakhutdinov,
+  Nicholay Topin, et~al.
+\newblock The minerl competition on sample efficient reinforcement learning
+  using human priors.
+\newblock \emph{arXiv preprint arXiv:1904.10079}, 2019{\natexlab{a}}.
+
+\bibitem[Guss et~al.(2019{\natexlab{b}})Guss, Codel*, Hofmann*, Houghton*,
+  Kuno*, Milani*, Mohanty*, Perez~Liebana*, Salakhutdinov*, Topin*, Veloso*,
+  and Wang*]{gussminerlneurips2019}
+William~H. Guss, Cayden Codel*, Katja Hofmann*, Brandon Houghton*, Noboru
+  Kuno*, Stephanie Milani*, Sharada Mohanty*, Diego Perez~Liebana*, Ruslan
+  Salakhutdinov*, Nicholay Topin*, Manuela Veloso*, and Phillip Wang*.
+\newblock The {M}ine{RL} competition on sample efficient reinforcement learning
+  using human priors.
+\newblock In \emph{The 23rd Conference on Neural Information Processing Systems
+  Competition Track}, 2019{\natexlab{b}}.
+
+\bibitem[Guss* et~al.(2019)Guss*, Houghton*, Topin, Wang, Codel, Veloso, and
+  Salakhutdinov]{gussminerlijcai2019}
+William~H. Guss*, Brandon Houghton*, Nicholay Topin, Phillip Wang, Cayden
+  Codel, Manuela Veloso, and Ruslan Salakhutdinov.
+\newblock Mine{RL}: A large-scale dataset of {M}inecraft demonstrations.
+\newblock In \emph{The 28th International Joint Conference on Artificial
+  Intelligence}, 2019.
+
+\bibitem[Hessel et~al.(2018{\natexlab{a}})Hessel, Modayil, Van~Hasselt, Schaul,
+  Ostrovski, Dabney, Horgan, Piot, Azar, and Silver]{hessel2018rainbow}
+Matteo Hessel, Joseph Modayil, Hado Van~Hasselt, Tom Schaul, Georg Ostrovski,
+  Will Dabney, Dan Horgan, Bilal Piot, Mohammad Azar, and David Silver.
+\newblock Rainbow: Combining improvements in deep reinforcement learning.
+\newblock In \emph{The 32nd AAAI Conference on Artificial Intelligence},
+  2018{\natexlab{a}}.
+
+\bibitem[Hessel et~al.(2018{\natexlab{b}})Hessel, Modayil, van Hasselt, Schaul,
+  Ostrovski, Dabney, Horgan, Piot, Azar, and Silver]{rainbow}
+Matteo Hessel, Joseph Modayil, Hado van Hasselt, Tom Schaul, Georg Ostrovski,
+  Will Dabney, Dan Horgan, Bilal Piot, Mohammad~G. Azar, and David Silver.
+\newblock Rainbow: Combining improvements in deep reinforcement learning.
+\newblock In \emph{The 32nd AAAI Conference on AI}, 2018{\natexlab{b}}.
+
+\bibitem[Hester et~al.(2018)Hester, Vecerik, Pietquin, Lanctot, Schaul, Piot,
+  Horgan, Quan, Sendonaris, Osband, et~al.]{hester2018deep}
+Todd Hester, Matej Vecerik, Olivier Pietquin, Marc Lanctot, Tom Schaul, Bilal
+  Piot, Dan Horgan, John Quan, Andrew Sendonaris, Ian Osband, et~al.
+\newblock Deep q-learning from demonstrations.
+\newblock In \emph{The 32nd AAAI Conference on Artificial Intelligence}, 2018.
+
+\bibitem[Ho and Ermon(2016)]{gail_2016}
+Jonathan Ho and Stefano Ermon.
+\newblock Generative adversarial imitation learning.
+\newblock In \emph{The 20th Conference on Neural Information Processing
+  Systems}, 2016.
+
+\bibitem[Hsu(2019)]{hsu_2019}
+Jeremy Hsu.
+\newblock Ai takes on popular minecraft game in machine-learning contest, Nov
+  2019.
+\newblock URL \url{https://www.nature.com/articles/d41586-019-03630-0}.
+
+\bibitem[Johnson et~al.(2016)Johnson, Hofmann, Hutton, and
+  Bignell]{johnson2016malmo}
+Matthew Johnson, Katja Hofmann, Tim Hutton, and David Bignell.
+\newblock The malmo platform for artificial intelligence experimentation.
+\newblock In \emph{The 25th International Joint Conference on Artificial
+  Intelligence}, pages 4246--4247, 2016.
+
+\bibitem[Kidzi{\'n}ski et~al.(2018)Kidzi{\'n}ski, Mohanty, Ong, Hicks, Carroll,
+  Levine, Salath{\'e}, and Delp]{kidzinski2018learning}
+{\L}ukasz Kidzi{\'n}ski, Sharada~P Mohanty, Carmichael~F Ong, Jennifer~L Hicks,
+  Sean~F Carroll, Sergey Levine, Marcel Salath{\'e}, and Scott~L Delp.
+\newblock Learning to run challenge: Synthesizing physiologically accurate
+  motion using deep reinforcement learning.
+\newblock In \emph{The NIPS'17 Competition: Building Intelligent Systems},
+  pages 101--120. Springer, 2018.
+
+\bibitem[Milani et~al.(2020)Milani, Topin, Houghton, Guss, Mohanty, Vinyals,
+  and Kuno]{milani2020minerl}
+Stephanie Milani, Nicholay Topin, Brandon Houghton, William~H. Guss, Sharada~P.
+  Mohanty, Oriol Vinyals, and Noboru~Sean Kuno.
+\newblock The {MineRL} competition on sample-efficient reinforcement learning
+  using human priors: A retrospective.
+\newblock \emph{arXiv preprint, arXiv:2003.05012}, 2020.
+
+\bibitem[Mnih et~al.(2015)Mnih, Kavukcuoglu, Silver, Rusu, Veness, Bellemare,
+  Graves, Riedmiller, Fidjeland, Ostrovski, et~al.]{mnih2015human}
+Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Andrei~A Rusu, Joel Veness,
+  Marc~G Bellemare, Alex Graves, Martin Riedmiller, Andreas~K Fidjeland, Georg
+  Ostrovski, et~al.
+\newblock Human-level control through deep reinforcement learning.
+\newblock \emph{Nature}, 518\penalty0 (7540):\penalty0 529, 2015.
+
+\bibitem[Mnih et~al.(2016)Mnih, Badia, Mirza, Graves, Lillicrap, Harley,
+  Silver, and Kavukcuoglu]{mnih2016asynchronous}
+Volodymyr Mnih, Adria~Puigdomenech Badia, Mehdi Mirza, Alex Graves, Timothy
+  Lillicrap, Tim Harley, David Silver, and Koray Kavukcuoglu.
+\newblock Asynchronous methods for deep reinforcement learning.
+\newblock In \emph{The 33rd International Conference on Machine Learning},
+  pages 1928--1937, 2016.
+
+\bibitem[Nichol et~al.(2018)Nichol, Pfau, Hesse, Klimov, and
+  Schulman]{nichol2018gotta}
+Alex Nichol, Vicki Pfau, Christopher Hesse, Oleg Klimov, and John Schulman.
+\newblock Gotta learn fast: A new benchmark for generalization in rl.
+\newblock \emph{arXiv preprint arXiv:1804.03720}, 2018.
+
+\bibitem[Oh et~al.(2016)Oh, Chockalingam, Singh, and Lee]{oh2016control}
+Junhyuk Oh, Valliappa Chockalingam, Satinder Singh, and Honglak Lee.
+\newblock Control of memory, active perception, and action in {M}inecraft.
+\newblock \emph{arXiv preprint arXiv:1605.09128}, 2016.
+
+\bibitem[OpenAI(2018)]{openai_2018}
+OpenAI.
+\newblock Openai five, Sep 2018.
+\newblock URL \url{https://blog.openai.com/openai-five/}.
+
+\bibitem[Panse et~al.(2018)Panse, Madheshia, Sriraman, and
+  Karande]{panse2018imitation}
+Ameya Panse, Tushar Madheshia, Anand Sriraman, and Shirish Karande.
+\newblock Imitation learning on atari using non-expert human annotations.
+\newblock 2018.
+
+\bibitem[Perez-Liebana et~al.(2019)Perez-Liebana, Hofmann, Mohanty, Kuno,
+  Kramer, Devlin, Gaina, and Ionita]{perez2019multi}
+Diego Perez-Liebana, Katja Hofmann, Sharada~Prasanna Mohanty, Noburu Kuno,
+  Andre Kramer, Sam Devlin, Raluca~D Gaina, and Daniel Ionita.
+\newblock {The Multi-Agent Reinforcement Learning in Malm\"{O} (MARL\"{O})
+  Competition}.
+\newblock \emph{arXiv preprint arXiv:1901.08129}, 2019.
+
+\bibitem[Salge et~al.(2018)Salge, Green, Canaan, and
+  Togelius]{salge2018generative}
+Christoph Salge, Michael~Cerny Green, Rodgrigo Canaan, and Julian Togelius.
+\newblock {Generative Design in Minecraft (GDMC): Settlement Generation
+  Competition}.
+\newblock In \emph{The 13th International Conference on the Foundations of
+  Digital Games}, page~49. ACM, 2018.
+
+\bibitem[Schulman et~al.(2017)Schulman, Wolski, Dhariwal, Radford, and
+  Klimov]{ppo}
+John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov.
+\newblock Proximal policy optimization algorithms.
+\newblock \emph{arXiv preprint arXiv:1707.06347}, 2017.
+
+\bibitem[Shead(2019)]{shead_2019}
+Sam Shead.
+\newblock Minecraft diamond challenge leaves ai creators stumped, Dec 2019.
+\newblock URL \url{https://www.bbc.com/news/technology-50720823}.
+
+\bibitem[Shu et~al.(2017)Shu, Xiong, and Socher]{shu2017hierarchical}
+Tianmin Shu, Caiming Xiong, and Richard Socher.
+\newblock Hierarchical and interpretable skill acquisition in multi-task
+  reinforcement learning.
+\newblock \emph{arXiv preprint arXiv:1712.07294}, 2017.
+
+\bibitem[Silver et~al.(2017)Silver, Schrittwieser, Simonyan, Antonoglou, Huang,
+  Guez, Hubert, Baker, Lai, Bolton, et~al.]{silver2017mastering}
+David Silver, Julian Schrittwieser, Karen Simonyan, Ioannis Antonoglou, Aja
+  Huang, Arthur Guez, Thomas Hubert, Lucas Baker, Matthew Lai, Adrian Bolton,
+  et~al.
+\newblock Mastering the game of go without human knowledge.
+\newblock \emph{Nature}, 550\penalty0 (7676):\penalty0 354--359, 2017.
+
+\bibitem[Silver et~al.(2018)Silver, Hubert, Schrittwieser, Antonoglou, Lai,
+  Guez, Lanctot, Sifre, Kumaran, Graepel, et~al.]{alphazero}
+David Silver, Thomas Hubert, Julian Schrittwieser, Ioannis Antonoglou, Matthew
+  Lai, Arthur Guez, Marc Lanctot, Laurent Sifre, Dharshan Kumaran, Thore
+  Graepel, et~al.
+\newblock A general reinforcement learning algorithm that masters chess, shogi,
+  and go through self-play.
+\newblock \emph{Science}, 362, 2018.
+
+\bibitem[Synced(2019)]{synced_2019}
+Synced.
+\newblock Neurips 2019 will host minecraft reinforcement learning competition,
+  May 2019.
+\newblock URL
+  \url{https://medium.com/syncedreview/neurips-2019-will-host-minecraft-reinforcement-learning-competition-146e8bc8da1}.
+
+\bibitem[Tessler et~al.(2017)Tessler, Givony, Zahavy, Mankowitz, and
+  Mannor]{tessler2017deep}
+Chen Tessler, Shahar Givony, Tom Zahavy, Daniel~J Mankowitz, and Shie Mannor.
+\newblock A deep hierarchical approach to lifelong learning in minecraft.
+\newblock In \emph{The 31st AAAI Conference on AI}, 2017.
+
+\bibitem[van Hasselt et~al.(2016)van Hasselt, Guez, and
+  Silver]{hasselt2015deep}
+Hado van Hasselt, Arthur Guez, and David Silver.
+\newblock Deep reinforcement learning with double q-learning.
+\newblock In \emph{The 30th AAAI Conference on AI}, 2016.
+
+\bibitem[Vincent(2019)]{vincent_2019}
+James Vincent.
+\newblock Ai has bested chess and go, but it struggles to find a diamond in
+  minecraft, Dec 2019.
+\newblock URL
+  \url{https://www.theverge.com/2019/12/13/21020230/ai-minecraft-minerl-diamond-challenge-microsoft-reinforcement-learning}.
+
+\bibitem[Vinyals et~al.(2019)Vinyals, Babuschkin, Czarnecki, Mathieu, Dudzik,
+  Chung, Choi, Powell, Ewalds, Georgiev, et~al.]{starcraft2019}
+Oriol Vinyals, Igor Babuschkin, Wojciech~M. Czarnecki, Michael Mathieu, Andrew
+  Dudzik, Junyong Chung, David~H. Choi, Richard Powell, Timo Ewalds, Petko
+  Georgiev, et~al.
+\newblock Grandmaster level in {StarCraft II} using multi-agent reinforcement
+  learning.
+\newblock \emph{Nature}, 2019.
+
+\end{thebibliography}

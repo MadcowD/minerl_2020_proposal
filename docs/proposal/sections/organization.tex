@@ -1,0 +1,194 @@
+\subsection{Protocol}
+
+\subsubsection{Submission Protocol}
+\label{subsec:sub_protocol}
+The evaluation of the submissions will be managed by AIcrowd, an open-source platform for organizing machine learning competitions. 
+Throughout the competition, participants will work on their code bases as git repositories\footnote{\url{https://gitlab.aicrowd.com}}. 
+Participants must package their intended runtime in their repositories to ensure that the AIcrowd evaluators can automatically build relevant Docker images from their repositories and orchestrate them as needed. 
+This approach also ensures that all successfully-evaluated, user-submitted code is both versioned across time and completely reproducible. 
+
+\paragraph{Software Runtime Packaging.}
+Packaging and specification of the software runtime is among the most time consuming (and frustrating) task for many participants. 
+To simplify this step, we will support numerous approaches to package the software runtime with the help of \texttt{aicrowd-repo2docker}\footnote{\url{https://pypi.org/project/aicrowd-repo2docker/}}. 
+The \texttt{aicrowd-repo2docker} is a tool which lets participants specify their runtime using Anaconda environment exports, \texttt{requirements.txt}, or a traditional Dockerfile. 
+This significantly decreases the barrier to entry for less technically-inclined participants by transforming an irritating debug cycle to a deterministic one-liner that performs the work behind the scenes. 
+
+\paragraph{Submission Mechanism.}
+Participants will collaborate on their git repository throughout the competition.
+Whenever they are ready to make a submission, they will create and push a \textit{git tag} to trigger the evaluation pipeline. %: image building, orchestration of the containers with the required evaluation context.
+
+\paragraph{Orchestration of the Submissions.}
+The ability to reliably orchestrate user submissions over large periods of time is a key determining feature of the success of the proposed competition. 
+We will use the evaluators of AIcrowd, which use custom Kubernetes clusters to orchestrate the submissions against pre-agreed resource usage constraints. 
+The same setup has previously been successfully used in numerous other machine learning competitions, such as NeurIPS 2017: Learning to Run Challenge, NeurIPS 2018: AI for Prosthetics Challenge, NeurIPS 2018: Adversarial Vision Challenge, and the 2018 MarLO challenge. 
+
+
+
+\subsubsection{General Competition Structure}
+
+\paragraph{Round 1: General Entry.} 
+In this round, participants will register on the competition website, and receive the following materials:
+\begin{itemize}
+	\item Starter code for running the MineRL environments for the competition task. 
+	\item Basic baseline implementations provided by Preferred Networks, the competition organizers, and the top teams from the MineRL 2019 competition (see Section~\ref{sec:baselines}).
+	\item Two different renders of the human demonstration dataset (one for methods development, the other for validation) with modified textures, lighting conditions, and minor game state changes. 
+	\item The Docker Images and quick-start template that the competition organizers will use to validate the training performance of the competitor's models.
+\end{itemize}
+
+Competitors may submit solutions to two tracks. The main track will provide access to both the simulator and paired demonstrations during training, while the alternate, demonstrations only track, will only provide agents with the MineRL-v0 dataset during training. Both tracks will be evaluated by measuring average performance over 100 episodes on the \texttt{ObtainDiamond} task. Competitors may submit to both tracks.
+
+When satisfied with their models, participants will follow the submission protocols (described in Section~\ref{subsec:sub_protocol}) to submit their code for evaluation, specifying either the main track or alternate track. 
+The automated evaluation setup will evaluate the submissions against the validation environment, to compute and report the metrics (described in Section~\ref{sec:metrics}) to the respective public leaderboard on the AIcrowd website. 
+Because the full training phase is quite resource intensive, it is not be possible to run the training for all the submissions in this round; however, the evaluator will ensure that the submitted code includes the relevant subroutines for the training of the models by running a short integration test on the training code before doing the actual evaluation on the validation environment.
+
+
+Once Round 1 is complete, the organizers will examine the code repositories of the top submissions from each track to ensure compliance with the competition rules. For the main track, the top 15 verified teams will be invited to the second round. For the alternate demonstrations-only track, 5 teams will move on to Round 2. To verify the top submissions comply with the competition rules, they will be automatically trained on the validation dataset and environment by the competition orchestration platform. The code repositories associated with the corresponding submissions will be forked, and scrubbed of large files to ensure that participants are not using any pretrained models in the subsequent round.   
+The resulting trained models will then be evaluated over several hundred episodes.
+Their performance will be compared with the submission's final model performance during Round 1 to ensure that no warm-starting or adversarial modifications of the evaluation harness was made. In the case of the demonstrations-only track, we additionally verify that no environment interactions were used in the development of the model.
+The teams whose submissions have conflicting end-of-round and organizer-ran performance distribution will be contacted for appeal. 
+Unless a successful appeal is made, the organizers will remove those submissions from the competition and then evaluate additional submissions until each track is at capacity: 15 teams for the main track, and 5 teams for the alternate track. Teams may qualify for the second round in both tracks; therefore, fewer than 20 teams may qualify for Round 2 among the two tracks. 
+
+
+\paragraph{Round 2: Finals.} 
+In this round, the top performing teams will continue to develop their algorithms.
+Their work will be evaluated against a confidential, held-out test environment and test dataset, to which they will not have access. This environment includes perturbations to both the action-space as well as the observation space.
+
+Specifically, participants in each track will be able to make a submission to that track (as described in Section~\ref{subsec:sub_protocol}) twice during Round 2. The automated evaluator will execute their algorithms on the test dataset and simulator, and report their score and metrics back to the participants. This is done to prevent competitors from over-fitting to the training and validation datasets/simulators.
+
+Again all submitted code repositories will be scrubbed to remove any files larger than 15MB to ensure participants are not including any model weights pre-trained on the previously released training dataset. While the container running the submitted code will not have external network access, relevant exceptions are added to ensure participants can download and use popular frameworks like PyTorch\footnote{\url{https://pytorch.org}} and Tensorflow\footnote{\url{http://tensorflow.org}}. Participants can request to add network exceptions for any other publicly available resource, which will be validated by AIcrowd on a case by case basis.
+
+Further, participants will submit a written report of their technical approach to the problem; this report will be used to bolster the impact of this competition on sample-efficient reinforcement learning research. They will also be encouraged to submit their papers to relevant workshops at NeurIPS in order to increase interest in their work.
+
+At the end of the second period, the competition organizers will execute a final run of the participants’ algorithms and the winners will be selected for each of the competition tracks. 
+
+\paragraph{User Submitted Code.} 
+If a team requires an exception to the open source policy, then the team has a time window of 3 weeks after the competition ends to request an appeal by contacting the organizers. We will communicate with the team and potentially grant an exception. For example, a submission may be open sourced at a later date if the team is preparing a research publication based on new techniques used within their submission.
+By default, all of the associated code repositories will be made public and available\footnote{\url{https://gitlab.aicrowd.com}} after the 3 week window at the end of the competition.
+
+\paragraph{NeurIPS Workshop.} 
+
+After winners have been selected, there will be a NeurIPS workshop to exhibit the technical approaches developed during the competition.
+We plan to invite teams from Round 2 to attend and present their results at the workshop.
+Due to COVID-19, this workshop will be completely online.
+
+
+\subsection{Rules}
+The aim of the competition is to develop sample-efficient training algorithms. Therefore, we discourage the use of
+environment-specific, hand-engineered features because they do not demonstrate fundamental algorithmic improvements.
+The following rules attempt to capture the spirit of the competition and any submissions found to be violating 
+the rules may be deemed ineligible for participation by the organizers.
+\begin{itemize}
+	\item \textbf{Entries to the MineRL competition must be ``open''.} Teams will be expected to reveal most details of their method including source-code (special exceptions may be made for pending publications).
+	\item \textbf{For a team to be eligible to move to Round 2, each member must satisfy the following conditions:}
+	\begin{itemize}
+	    \item be at least 18 and at least the age of majority in place of residence; 
+	    \item not reside in any region or country subject to U.S. Export Regulations; and 
+	    \item not be an organizer of this competition nor a family member of a
+	    competition organizer. 
+	    \end{itemize}
+    \item \textbf{To receive any awards from our sponsors, competition winners must attend the NeurIPS workshop.}
+    \item \textbf{The submission must train a machine learning model without relying on human domain knowledge.}
+    \begin{itemize}
+        \item \textbf{The reward function may not be changed (shaped) based on manually engineered, hard-coded functions of the state.} For example, additional rewards for approaching tree-like objects are not permitted, but rewards for encountering novel states (“curiosity rewards”) are permitted.
+        \item \textbf{Actions/meta-actions/sub-actions/sub-policies may not be manually specified in any way.} For example, though a learned hierarchical controller is permitted, meta-controllers may not choose between two policies based on a manually specified condition, such as whether the agent has a certain item in its inventory. This restriction includes the composition of actions (e.g., adding an additional action which is equivalent to performing “walk forward for 2 seconds” or “break a log and then place a crafting table”).
+        \item \textbf{State processing/pre-processing cannot be hard-coded with the exception of frame-stacking.} For example, the agent can act every even-numbered timestep based on the last two observations, but a manually specified edge detector may not be applied to the observation. As another example, the agent’s observations may be normalized to be “zero-mean, variance one” based on an observation history or the dataset.
+        \item \textbf{To ensure that the semantic meaning attached to action and observation labels are not exploited, the labels assigned to actions and observations have been obfuscated (in both the dataset and the environment).} Actions and observations (with the exception of POV observations) have been embedded into a different space. Furthermore, during Round 2 submissions, the actions will be re-embedded. Any attempt to bypass these obfuscations will constitute a violation of the rules.
+        \item \textbf{Models may only be trained against the competition environments (MineRL environments ending with “VectorOb(f)").}  All of the MineRL environments have specific competition versions which incorporate action and observation space obfuscation. They all share a similar observation and action space embedding which is changed in Round 2 as with the texture pack of the environment. 
+    \end{itemize}
+    \item \textbf{There are two tracks, each with a different sample budget:}
+    \begin{itemize}
+        \item \textbf{The primary track is ``Demonstrations and Environment.''} Eight million (8,000,000) interactions with the environment may be used in addition to the provided dataset. If stacking observations / repeating actions, then each skipped frame still counts against this budget.
+        \item \textbf{The secondary track is ``Demonstrations Only.''} No environment interactions may be used in addition to the provided dataset. Competitors interested in learning solely from demonstrations can compete in this track without being disadvantaged compared to those who also use reinforcement learning. 
+        \item \textbf{A team can submit separate entries to both tracks; performance in the tracks will be evaluated separately} (i.e., submissions between the two tracks are not linked in any way).
+    \end{itemize}
+    \item \textbf{Participants may only use the provided dataset; no additional datasets may be included in the source file submissions nor may be downloaded during training evaluation, but pre-trained models which are publicly available by June 5th are permitted.}
+    \begin{itemize}
+        \item During the evaluation of submitted code, the individual containers will \textit{not} have access to any external network in order to avoid any information leak. Relevant exceptions are added to ensure participants can download and use the pre-trained models included in popular frameworks like PyTorch and TensorFlow. Participants can request to add network exceptions for any other publicly available pre-trained models, which will be validated by AICrowd on a case-by-case basis.
+        \item All submitted code repositories will be scrubbed to remove files larger than 30MB to ensure participants are not checking in any model weights pretrained on the released training dataset.
+        \item Pretrained models are not allowed to have been trained on MineRL or any related or unrelated Minecraft data. The intent of this rule is to allow participants to use models which are, for example, trained on ImageNet or similar datasets. Don't abuse this.
+    \end{itemize}
+    \item \textbf{The procedure for Round 1 is as follows:}
+    \begin{itemize}
+        \item During Round 1, teams submit their trained models for evaluation at most twice a week times and receive the performance of their models. 
+        \item At the end of Round 1, teams must submit source code to train their models. This code must terminate within four days on the specified platform. 
+        \item For teams with the highest evaluation scores, this code will be inspected for rule compliance and used to re-train the models with the validation dataset and environment. 
+        \item For those submissions whose end-of-round and organizer-ran performance distributions disagree, the offending teams will be contacted for appeal. Unless a successful appeal is made, the organizers will remove those submissions from the competition and then evaluate additional submissions until each track is at capacity.
+        \item The top 15 teams in the main (RL+Demonstration) track and the top 5 teams in the secondary (Demonstration Only) track will progress to Round 2.
+    \end{itemize}   
+    \item \textbf{The procedure for Round 2 is as follows:}
+    \begin{itemize}
+        \item During Round 2, teams will submit their source code at most once every two weeks.
+        \item After each submission, the model will be trained for four days on a re-rendered, private dataset and domain, and the teams will receive the final performance of their model. The dataset and domain will contain matching perturbations to the action space and the observation space.
+        \item At the end of the round, final standings are based on the best-performing submission of each team during Round 2.
+    \end{itemize}
+    \item \textbf{Official rule clarifications will be made in the FAQ on the AIcrowd website.}
+    \begin{itemize}
+    \item The FAQ is available here\footnote{\url{https://www.aicrowd.com/challenges/neurips-2020-minerl-competition\#faq}}.
+
+    \item Answers within the FAQ are \textit{official answers} to questions. Any informal answers to questions (e.g., via email) are superseded by answers added to the FAQ.
+\end{itemize}
+
+\end{itemize}
+
+See the rules page\footnote{\url{https://www.aicrowd.com/challenges/neurips-2020-minerl-competition/challenge_rules}} (an AIcrowd account is needed to view this page) for any updates.
+
+\paragraph{Cheating.}
+The competition is designed to prevent rule breaking and to discourage submissions that circumvent the competition goals.
+Submissions will be tested on variants of the environment/data with different textures and lighting,
+discouraging the any priors that are not trained from scratch. 
+Inherent stochasticity in the environment, such as different world and spawn locations, as well as the desemantization and isomorphic embedding of state and action-space components directly discourage the use of hard-coded policies. 
+Furthermore, we will use automatic evaluation scripts to verify the participants' submitted scores in the first round
+and perform a manual code review of the finalists of each round in the competition. We highlight that the evaluation dataset/environment pair on which participants will be evaluated is \emph{completely inaccessible} to competitors, and measures are taken to prevent information leak.
+
+\subsection{Schedule and Readiness}
+
+\subsubsection{Schedule}  
+
+Given the difficulty of the problem posed, ample time shall be given to allow participants to fully realize their solutions.
+Our proposed timeline gives competitors over 80 days to prepare, evaluate, and receive feedback on their solutions before the end of the first round.
+\begin{itemize}
+	\item [April 13] \textbf{Competition Accepted}. 
+	\item [May] \textbf{Pre-Release:} Submission framework finalized. 
+	\item [June] \textbf{First Round Begins:} Participants invited to download starting materials and baselines and to begin developing their submission.
+	\item [September] \textbf{End of First Round:} Submissions close. Models evaluated by organizers and partners.
+	\item [September] \textbf{First Round Results Posted:} Official results posted notifying finalists.
+	\item [September] \textbf{Final Round Begins:} Finalists invited to submit their models against the held out validation texture pack.
+	\item [November] \textbf{End of Final Round:} Submissions close. Organizers train finalists latest submission for evaluation.
+	\item [November] \textbf{Final Results Posted:} Official results of model training and evaluation posted.
+	\item [December 6] \textbf{NeurIPS 2020:} Winning teams invited to the conference to present their results. Awards announced at conference.
+\end{itemize}
+
+\subsubsection{Readiness.} At the time of writing this proposal the following key milestones are complete: 
+\begin{itemize}
+    \item The dataset is fully collected, cleaned, and automatically annotated;
+    \item The competition environments have been finalized and implemented;
+    \item The advisory committee is fully established; 
+    \item The partnership with AIcrowd has been confirmed, and we are in discussion with last year's sponsors;
+    \item A specific plan for attracting underrepresented groups is finalized; 
+    \item The competition infrastructure has been developed, including the submission harness. 
+\end{itemize}
+If accepted to the NeurIPS competition track, there are no major roadblocks preventing the execution of the competition.
+
+
+\subsection{Competition promotion}
+
+\paragraph{Partnership with Affinity Groups}
+We hope to partner with affinity groups to promote the participation of groups who are traditionally underrepresented at NeurIPS.
+We plan to reach out to organizers of Women in Machine Learning (WiML)\footnote{\url{https://wimlworkshop.org/}}, LatinX in AI (LXAI)\footnote{\url{https://www.latinxinai.org/}}, Black in AI (BAI)\footnote{\url{https://blackinai.github.io/}}, and Queer in AI\footnote{\url{https://sites.google.com/view/queer-in-ai/}}. 
+We will also reach out to organizations, such as Deep Learning Indaba\footnote{\url{http://www.deeplearningindaba.com/}} and Data Science Africa\footnote{\url{http://www.datascienceafrica.org/}}, to determine how to increase the participation of more diverse teams.
+Specifically, we hope to form a selection committee for the Inclusion@NeurIPS scholarships consisting of some of our organizers and members from those groups.
+We also plan to encourage competition participants to submit write-ups of their solutions to relevant affinity group workshops at NeurIPS.
+
+\paragraph{Promotion through General Mailing Lists}
+To promote participation in the competition, we plan to distribute the call to general technical mailing lists, such as Robotics Worldwide and Machine Learning News; company mailing lists, such as DeepMind's internal mailing list; and institutional mailing lists. 
+We plan to promote participation of underrepresented groups in the competition by distributing the call to affinity group mailing lists, including, but not limited to Women in Machine Learning, LatinX in AI, Black in AI, and Queer in AI.
+Furthermore, we will reach out to individuals at historically black or all-female universities and colleges to encourage the participation of these students and/or researchers in the competition.
+By doing so, we will promote the competition to individuals who are not on any of the aforementioned mailing lists, but are still members of underrepresented groups. 
+
+\paragraph{Media Coverage}
+To increase general interest and excitement surrounding the competition, we will reach out to the media coordinator at Carnegie Mellon University.
+By doing so, our competition will be promoted by popular online magazines and websites, such as Wired. 
+We will also post about the competition on relevant popular subreddits, such as \url{r/machinelearning} and /r/datascience, and promote it through social media. 
+We will utilize our industry and academic partners to post on their various social media platforms, such as the OpenAI Blog, the Carnegie Mellon University Twitter, and the Microsoft Facebook page.
+
+The previous iteration of the MineRL competition was featured by several notable news outlets including Nature News~\cite{hsu_2019}, BBC~\cite{shead_2019}, The Verge~\cite{vincent_2019}, and Synced~\cite{synced_2019}. This widespread publication and coverage of the competition led to a drastic influx of new users and spectators from outside of the NeurIPS community. We intend on further leveraging these media connections to increase the reach of our call for competitors. 
